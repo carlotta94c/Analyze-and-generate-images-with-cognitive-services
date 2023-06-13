@@ -15,7 +15,7 @@ Do you know how AI can see the world around us? Do you know how AI can generate 
 #### To run the app locally
 To set up your local environment and run the web app you need to configure the following pre-requisites:
 * [Azure subscription](https://azure.microsoft.com/en-us/pricing/offers/ms-azr-0044p/) or an [Azure for students free trial](https://azure.microsoft.com/en-us/students/).
-  * [Computer vision resource] (https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
+  * [Computer vision resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesComputerVision).
   * [Azure OpenAI resource](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesOpenAI). Access to this service (and in particular to DALLE model) should be requested in advance through [this form](https://customervoice.microsoft.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR7en2Ais5pxKtso_Pz4b1_xUOFA5Qk1UWDRBMjg0WFhPMkIzTzhKQ1dWNyQlQCN0PWcu). If your application don't match the [acceptance criteria](https://learn.microsoft.com/legal/cognitive-services/openai/limited-access?context=%2Fazure%2Fcognitive-services%2Fopenai%2Fcontext%2Fcontext), you can use [OpenAI public APIs](https://platform.openai.com/docs/api-reference/introduction).
 * [Node.js and npm](https://nodejs.org/en/download) - installed to your local machine.
 * [Visual Studio Code](https://code.visualstudio.com/) - installed to your local machine.
