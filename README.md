@@ -41,7 +41,7 @@ The React app of this demo provides the following functionalities:
 
 * Allows you to generate an image with [DALLE](https://openai.com/dall-e-2), by entering a textual prompt. 
   * When generation process is complete: it displays the generated image and the corresponding url.
-  
+
   ![Image generation result](./Images/ComputerVisionImageGeneration.png)
 
 ### Step-by-step guide
@@ -84,6 +84,13 @@ The React app of this demo provides the following functionalities:
   If you want to switch from one to the other, you need to change the code in *./src/azure-cognitiveservice-openai.js*. Look for the comments *"Uncomment this line to use (...)"*, uncomment the code for the service you want to use and comment the code for the other service.
 
   Not sure what's the difference between the two services? Learn more [here](https://learn.microsoft.com/en-gb/azure/cognitive-services/openai/overview#comparing-azure-openai-and-openai/?WT.mc_id=academic-99204-cacaste).
+
+### Troubleshooting
+Are you getting *ERR_OSSL_EVP_UNSUPPORTED* error when running your app locally? This error message indicates that something within your web development stack isn’t compatible with the [OpenSSL](https://www.openssl.org/) files you’re running.
+
+This is happing because of an inconsistency with your development tools and the version of OpenSSL that you’re running. To fix this, you need to upgrade your development tools (Node.js, React.js, etc.) to the latest version. You can find a complete guide [here](https://kinsta.com/knowledgebase/err_ossl_evp_unsupported/).
+
+If you don’t want to upgrade them for any reason, you can simply enable the [OpenSSL 3.0 legacy provider](https://nodejs.org/api/cli.html#--openssl-legacy-provider) as a workaround, with the command: `set NODE_OPTIONS=--openssl-legacy-provider`.
 
 ## Useful Resources
 * [Create Computer Vision solutions with Azure Cognitive Services](https://learn.microsoft.com/en-us/training/paths/create-computer-vision-solutions-azure-cognitive-services/?WT.mc_id=academic-99204-cacaste)
