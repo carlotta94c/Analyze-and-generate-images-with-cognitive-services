@@ -41,6 +41,17 @@ The React app of this demo provides the following functionalities:
 
 #### Step-by-step guide
 
+##### To run the app locally
+1. Fork this repository and clone it on your machine.
+2. Install all the required dependencies by running `npm install` in a terminal or bash window, from the project folder.
+3. [Get your Computer Vision credentials](https://learn.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Canomaly-detector%2Clanguage-service%2Ccomputer-vision%2Clinux#get-the-keys-for-your-resource&?WT.mc_id=academic-99204-cacaste) and add them as environment variables in a terminal  (use `export` rather than `set` if you are in a bash window).
+  * set REACT_APP_AZURE_COMPUTER_VISION_KEY="REPLACE-WITH-YOUR-KEY"
+  * set REACT_APP_AZURE_COMPUTER_VISION_ENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
+4. Get your OpenAI instance credentials and add them as environment variables in a terminal (use `export` rather than `set` if you are in a bash window).
+  * set REACT_APP_AZURE_OPENAI_KEY="REPLACE-WITH-YOUR-KEY"
+  * set REACT_APP_AZURE_OPENAI_ENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
+  
+  If you are using an **Azure OpenAI endpoint**, you can retrieve your credentials from the *Keys and Endpoint* tab of your resource in the Azure Portal. On the other hand, if you are using an **OpenAI instance**, you can retrieve your key from [your user page](https://platform.openai.com/account/api-keys), while your endpoint is *https://api.openai.com/v1/*.
 
 ### Useful Resources
 * [Create Computer Vision solutions with Azure Cognitive Services](https://learn.microsoft.com/en-us/training/paths/create-computer-vision-solutions-azure-cognitive-services/?WT.mc_id=academic-99204-cacaste)
