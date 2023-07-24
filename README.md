@@ -1,13 +1,9 @@
 # Analyze and generate images with Cognitive Services
-This repository contains the demo material for the Microsoft Reactor session *"The CEMA AI Show - Cognitive Services"*.
+This repository hosts the code of a smart Javascript application integrating image analysis and generation capabilities.
 
 ### Empower your app with Computer Vision
-Are you interested in how AI perceives the world around us? Do you know how AI can generate a picture of a seaside landscape in a photorealistic style? In this session, we are going to demystify computer vision and image generation to show you how you can embed them into your applications using Azure services.
-
-
-* Speakers: [Carlotta Castelluccio](https://www.linkedin.com/in/carlotta-castelluccio/), Cloud Advocate at Microsoft &
-            [Hadeel Shubair](https://www.linkedin.com/in/hadeel-shubair-9883a9160/), Cloud Advocate at Microsoft
-* Event page: [The AI show! Session #5 - Cognitive Services](https://developer.microsoft.com/en-us/reactor/events/19883/?WT.mc_id=academic-99204-cacaste) 
+Are you interested in how AI perceives the world around us? Do you know how AI can generate a picture of a seaside landscape in a photorealistic style? 
+Look at this demo, to learn how you can embed computer vision capabilities into your applications using Azure services.
 
 ## Pre-requisites
 
