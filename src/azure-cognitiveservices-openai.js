@@ -8,8 +8,6 @@ console.log(`endpoint = ${endpoint}`)
 
 export const isConfigured = () => {
     const result = (key && endpoint && (key.length > 0) && (endpoint.length > 0)) ? true : false;
-    console.log(`key = ${key}`)
-    console.log(`endpoint = ${endpoint}`)
     console.log(`OpenAI isConfigured = ${result}`)
     return result;
 }
