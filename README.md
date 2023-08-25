@@ -49,13 +49,13 @@ The React app of this demo provides the following functionalities:
 3. [Get your Computer Vision credentials](https://learn.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account?tabs=multiservice%2Canomaly-detector%2Clanguage-service%2Ccomputer-vision%2Clinux#get-the-keys-for-your-resource&?WT.mc_id=academic-99204-cacaste) and add them as environment variables in a terminal  (use `export` rather than `set` if you are in a bash window).
 
     ```bash
-    set REACT_APP_AZURE_COMPUTER_VISION_KEY="REPLACE-WITH-YOUR-KEY"
-    set REACT_APP_AZURE_COMPUTER_VISION_ENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
+    set REACT_APP_AZURE_COMPUTER_VISION_KEY=REPLACE-WITH-YOUR-KEY
+    set REACT_APP_AZURE_COMPUTER_VISION_ENDPOINT=REPLACE-WITH-YOUR-ENDPOINT
     ```
 4. Get your OpenAI instance credentials and add them as environment variables in a terminal (use `export` rather than `set` if you are in a bash window).
     ```bash
-    set REACT_APP_AZURE_OPENAI_KEY="REPLACE-WITH-YOUR-KEY"
-    set REACT_APP_AZURE_OPENAI_ENDPOINT="REPLACE-WITH-YOUR-ENDPOINT"
+    set REACT_APP_AZURE_OPENAI_KEY=REPLACE-WITH-YOUR-KEY
+    set REACT_APP_AZURE_OPENAI_ENDPOINT=REPLACE-WITH-YOUR-ENDPOINT
     ```
   
   If you are using an **Azure OpenAI endpoint**, you can retrieve your credentials from the *Keys and Endpoint* tab of your resource in the Azure Portal.
@@ -85,7 +85,10 @@ The React app of this demo provides the following functionalities:
 
   ### Switching from an Azure OpenAI endpoint to OpenAI endpoint and viceversa
   Azure OpenAI Services API and OpenAI API handles the construction of the endpoint and of the authentication header differently. 
-  If you want to switch from one to the other, you need to change the code in *./src/azure-cognitiveservice-openai.js*. Look for the comments *"Uncomment this line to use (...)"*, uncomment the code for the service you want to use and comment the code for the other service.
+  This application can run with both services, but you need to set the api type to 'openai' in your environment variables if you are using non-Azure OpenAI endpoints (default is using Azure).
+  ```bash
+  set REACT_APP_AZURE_OPENAI_API_TYPE=openai
+  ```
 
   Not sure what's the difference between the two services? Learn more [here](https://learn.microsoft.com/en-gb/azure/cognitive-services/openai/overview#comparing-azure-openai-and-openai/?WT.mc_id=academic-99204-cacaste).
 
@@ -97,7 +100,7 @@ This issue occurs due to an inconsistency with your development tools and the ve
 If you don’t want to upgrade them for any reason, you can simply enable the [OpenSSL 3.0 legacy provider](https://nodejs.org/api/cli.html#--openssl-legacy-provider) as a workaround, with the command: 
 
 ```bash
-set NODE_OPTIONS=--openssl-legacy-provider`
+set NODE_OPTIONS=--openssl-legacy-provider
 ```
 
 ## Useful Resources

@@ -1,6 +1,7 @@
 // Authentication requirements
 const key = process.env.REACT_APP_AZURE_OPENAI_KEY;
 const endpoint = process.env.REACT_APP_AZURE_OPENAI_ENDPOINT;
+const api_type = process.env.REACT_APP_AZURE_OPENAI_API_TYPE ? process.env.REACT_APP_AZURE_OPENAI_API_TYPE : "azure";
 
 console.log(`key = ${key}`)
 console.log(`endpoint = ${endpoint}`)
@@ -16,42 +17,65 @@ export const isConfigured = () => {
 // Generate Image from text
 export const imageGeneration = async (prompt) => {
 
-    // Uncomment this line to use an Azure OpenAI endpoint
-    //const requestUrl = `${endpoint}openai/images/generations:submit?api-version=2023-06-01-preview`
-    
-    //Uncomment this line to use OpenAI API
-    const requestUrl = `${endpoint}images/generations`
+    console.log(`api type = ${api_type}`)
+    let requestUrl = "";
+    let headers = {};
+    if (api_type === "azure") {
+        requestUrl = `${endpoint}openai/images/generations:submit?api-version=2023-06-01-preview`
+        headers = {
+            'Content-Type': 'application/json',
+            'api-key': key,
+        }
+    }
+    else {
+        requestUrl = `${endpoint}images/generations`
+        headers = {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${key}`
+        }
+    }
 
     console.log(`requestUrl = ${requestUrl}`)
     
-    // analyze image
+    // generate image
     const requestBody = {
         'prompt': prompt
         }
-    
-    const headers = {
-        'Content-Type': 'application/json',
-        // Uncomment this line to use your Azure OpenAI endpoint
-        //'api-key': key,
-
-        // Uncomment this line to use OpenAI API
-        'Authorization': `Bearer ${key}`
-    }
 
     try {
-        const response = await fetch(requestUrl, {
+        let data = {};
+        let response = await fetch(requestUrl, {
             method: 'POST',
             body: JSON.stringify(requestBody), 
             headers: headers
         });
+        
+        if(api_type === "azure") {
+        const operation_location = response.headers.get('operation-location')
 
+        console.log(`operation_location = ${operation_location}`)
+
+        let status = "";
+        while (status !== "succeeded") {
+            response = await fetch(operation_location, {
+                method: 'GET',
+                headers: headers
+            });
+            data = await response.json();
+            status = data.status;
+        }
+        console.log(`status = ${status}`)
+    }
+    else{
+        data = await response.json();
+    }
+        
         //Checking if error occured
         if (!response.ok) {
             throw new Error(`Image cannot be generated: ${response.status} (${response.statusText})`);
         }
 
-        const data = await response.json();
-        const imageUrl = data.data;
+        const imageUrl = api_type === 'azure' ? data.result.data : data.data;
         console.log(`imageUrl = ${imageUrl}`)
         
         return {"prompt": prompt, "URL": imageUrl[0].url};
